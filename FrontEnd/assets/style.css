@@ -162,6 +162,15 @@ li:hover {
 	background-color: #1d6154;
 	color: #fff;
 }
+
+
+/** Page Login **/
+
+a.login{
+	color: black;
+	text-decoration: none;
+  }
+
 #contact {
 	width: 50%;
 margin: auto;
