@@ -6,3 +6,9 @@ Après la réunion et le mail de Charlotte, vous listez vos 3 missions principal
 * la page de connexion de l'administrateur du site (le client) (code à créer de zéro) ;
 * la modale permettant d'uploader de nouveaux médias (code à créer from scratch).
 Vous avez maintenant tous les éléments en poche, et êtes prêt à commencer ce nouveau défi.
+
+Pour la page Login : 
+
+email: sophie.bluel@test.tld
+
+password: S0phie 
