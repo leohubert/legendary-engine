@@ -25,7 +25,17 @@
 <main>
     <section id="loginPage">
         <h2>Log in</h2>
-	
+        <form action="#" method="post">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password"></input required>
+            <div id="error-message"></div>
+            <input id="sumbit" type="submit" value="Se connecter">
+            <div id="mdpOublie">
+                <a href="#">Mot de passe oublié</a>
+            </div>
+        </form>
   
 </section>
 </main>
