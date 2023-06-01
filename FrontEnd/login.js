@@ -5,12 +5,12 @@ const passwordInput = document.querySelector('#password');
 const errorMessage = document.querySelector('#error-message');
 const bouton = document.querySelector('#submit')
 
-// Écouteur d'événement pour la soumission du formulaire
+// Pour la soumission du formulaire
 bouton.addEventListener('click', async (event) => {
   event.preventDefault(); // Empêche le rechargement de la page
   // Récupération des valeurs des champs email et mot de passe
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
   // Envoi des données au serveur
   try {
@@ -18,26 +18,22 @@ bouton.addEventListener('click', async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-        
       },
-      body: JSON.stringify({
-        "email": "sophie.bluel@test.tld",
-        "password": "s0phie"
-      }),
-
-    });
+      body: JSON.stringify({email, password})
+    })  
     if (response.ok) {
       // Connexion réussie
       const data = await response.json();
-      // Traitez ici la réponse du serveur selon vos besoins
+      // Traitement de la réponse du serveur 
       console.log(data);
-    } else {
-      // Erreur de connexion
-      const errorData = await response.json();
-      errorMessage.textContent = errorData.message;
-    }
+      // Redirection vers la page d'accueil
+      window.location.href = 'index.html';
+    }else{
+        let errorMsg = document.getElementById('error-message');
+        errorMsg.textContent="Erreur lors de la connexion";
+      }
+  
+    console.log(response);
   } catch (error) {
     console.error('Erreur lors de la connexion', error);
   }
