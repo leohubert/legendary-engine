@@ -294,3 +294,9 @@ footer {
 	margin: 5% 0 15% 0;
 	font-weight: bold;
 }
+
+#error-message {
+	text-align: center;
+	display: block;
+	font-weight: bold;
+}

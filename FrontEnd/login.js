@@ -30,7 +30,7 @@ bouton.addEventListener('click', async (event) => {
       window.location.href = 'index.html';
     }else{
         let errorMsg = document.getElementById('error-message');
-        errorMsg.textContent="Erreur lors de la connexion";
+        errorMsg.textContent="! Erreur lors de la connexion !";
       }
   
     console.log(response);
