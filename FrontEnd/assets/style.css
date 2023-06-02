@@ -163,6 +163,41 @@ li:hover {
 	color: #fff;
 }
 
+#contact {
+	width: 50%;
+	margin: auto;
+}
+
+#contact > * {
+	text-align: center;
+}
+
+#contact h2 {
+	margin-bottom: 20px;
+}
+
+#contact form {
+	text-align: left;
+	margin-top: 30px;	
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact label {
+	margin: 2em 0 1em 0;
+}
+
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
 
 /** Page Login **/
 
@@ -174,76 +209,29 @@ li:hover {
 .login:hover {
 	color: #B1663C;
 }
-#contact {
-	width: 50%;
-	margin: auto;
-}
-#contact > * {
-	text-align: center;
 
-}
-#contact h2{
-	margin-bottom: 20px;
-}
-#contact form {
-	text-align: left;
-	margin-top:30px;	
-	display: flex;
-	flex-direction: column;
+.li-login:hover {
+	color: #B1663C;
 }
 
-#contact input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-#contact label {
-	margin: 2em 0 1em 0;
-}
-#contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
 }
 
-footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 3em;
-	background-color: white;
-}
-footer nav li {
-	font-style: normal;
-}
-footer {
-	background-color: white;
-	position: fixed;
-  	bottom: 0;
-  	left: 0;
-  	width: 100%;
-}
-
-
-/** Page Login **/
-
-#loginPage{
+#loginPage {
 	width: 35%;
 	margin: auto;
 	margin-top: 10%;
 }
 
-#loginPage>* {
+#loginPage > * {
 	text-align: center;
 }
 
@@ -275,8 +263,18 @@ footer {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+/** pour mettre login en gras sur la page login.html **/
+li a.login[href="./login.html"] {
+	font-weight: 900;
+}
 
-#sumbit {
+.li-login {
+	color: black;
+	text-decoration: none;
+	font-weight: 200;
+}
+
+#submit {
 	font-family: "Syne";
 	font-weight: 700;
 	color: white;
@@ -287,7 +285,7 @@ footer {
 	border-radius: 60px;
 }
 
-#mdpOublie>a {
+#mdpOublie > a {
 	text-align: center;
 	display: block;
 	color: #3D3D3D;
@@ -299,4 +297,32 @@ footer {
 	text-align: center;
 	display: block;
 	font-weight: bold;
+}
+
+/** Footer **/
+
+footer {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+
+}
+  
+footer nav {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em;
+	padding: 0;
+	background-color: white;
+
+}
+  
+footer[href="./login.html"] {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+
 }

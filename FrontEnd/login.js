@@ -22,16 +22,21 @@ bouton.addEventListener('click', async (event) => {
       body: JSON.stringify({email, password})
     })  
     if (response.ok) {
-      // Connexion réussie
-      const data = await response.json();
-      // Traitement de la réponse du serveur 
-      console.log(data);
-      // Redirection vers la page d'accueil
-      window.location.href = 'index.html';
-    }else{
+        // Connexion réussie
+        const data = await response.json();
+        // Récupérer le token d'authentification
+        const token = data.token;
+        // Stocker le token dans le stockage de session
+        sessionStorage.setItem('token', token);
+        // vérifier les informations reçues du serveur
+        console.log(data);
+        // Redirection vers la page d'accueil
+        window.location.href = 'index.html';
+    }
+    else {
         let errorMsg = document.getElementById('error-message');
         errorMsg.textContent="! Erreur lors de la connexion !";
-      }
+    }
   
     console.log(response);
   } catch (error) {
