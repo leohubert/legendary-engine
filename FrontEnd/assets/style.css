@@ -326,3 +326,12 @@ footer[href="./login.html"] {
 	background-color: white;
 
 }
+
+/** Création de la fenêtre modale **/
+#modalContent {
+    display: none; /* Masquer par défaut */
+}
+
+.modal-open #modalContent {
+    display: block; /* Afficher lorsque la modale est ouverte */
+}
