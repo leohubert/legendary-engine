@@ -28,7 +28,7 @@ fetch("http://localhost:5678/api/works")
   .catch((error) => console.error(error));
 
 
-/** Partie projets et filtres */ 
+/** Partie projets et filtres **/ 
 
 function recupererCategories() {
   return fetch('http://localhost:5678/api/categories')

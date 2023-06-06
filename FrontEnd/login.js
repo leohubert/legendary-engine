@@ -19,27 +19,40 @@ bouton.addEventListener('click', async (event) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({email, password})
-    })  
+      body: JSON.stringify({ email, password })
+    });
+
     if (response.ok) {
-        // Connexion réussie
-        const data = await response.json();
-        // Récupérer le token d'authentification
-        const token = data.token;
-        // Stocker le token dans le stockage de session
-        sessionStorage.setItem('token', token);
-        // vérifier les informations reçues du serveur
-        console.log(data);
-        // Redirection vers la page d'accueil
-        window.location.href = 'index.html';
-    }
+      // Connexion réussie
+      const data = await response.json();
+      // Récupérer le token d'authentification
+      const token = data.token;
+      // Stocker le token dans le stockage de session
+      sessionStorage.setItem('token', token);
+      // Redirection vers la page d'accueil
+      window.location.href = 'index.html';
+    } 
     else {
-        let errorMsg = document.getElementById('error-message');
-        errorMsg.textContent="! Erreur lors de la connexion !";
+      let errorMsg = document.getElementById('error-message');
+      errorMsg.textContent = '! Erreur lors de la connexion !';
     }
-  
-    console.log(response);
   } catch (error) {
     console.error('Erreur lors de la connexion', error);
   }
 });
+
+// Fonction de déconnexion
+function logout() {
+  // Supprimer le token du stockage de session
+  sessionStorage.removeItem('token');
+  // Redirection vers la page de connexion
+  window.location.href = 'login.html';
+}
+
+// Gestionnaire d'événement pour le bouton de déconnexion
+const logoutButton = document.getElementById('logout');
+logoutButton.addEventListener('click', logout);
+
+// Après l'authentification réussie, afficher le contenu d'édition
+const modalElement = document.getElementById('modal1');
+modalElement.classList.add('show');

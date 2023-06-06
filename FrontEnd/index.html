@@ -9,18 +9,26 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/2e5511eca8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<!-- Fenetre Modale -->
-	<aside id="modalContent">
-		<nav id="modeEdition" class="loginOk">
-			<li class="barreNoire"><i class="fa fa-sharp fa-light fa-pen-to-square"></i>Mode édition</li>
-			<li class="publier">publier les changements</li>
+	<aside id="modal1" class="modalContent modeEdition loginOk" aria-hidden="true" role="dialog" aria-label="titlemodal">
+		<nav id="loginOk" class="modeEdition">
+		  <ul class="barreEdition">
+			<li class="barreNoire"><i class="fa-regular fa-pen-to-square"></i>Mode édition</li>
+			<li class="publier"><button class="publier-btn">Publier les changements</button></li>
+		  </ul>
 		</nav>
+	  </aside>
+<!-- 
+	  <aside id="modal2" class="modalContent galerie" aria-modal="true" aria-hidden="true" role="modal" aria-label="titlemodal">
+		<div class="modalPhoto">
+			
+		</div>
 	</aside>
-	
-
+-->
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
@@ -28,31 +36,33 @@
 			<li>projets</li>
 			<li>contact</li>
 			<li><a class="login" href="./login.html">login</a></li>
+			<li><a class="loginOut modalContent logout" href="#" id="logout">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 <main>
 	<section id="introduction">
-		
+		<figure>
+			<img src="./assets/images/sophie-bluel.png" alt="">
+			<p id="introduction1" class="modalContent Introduction2">
+				<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
+		</figure>
 		<article>
-			<p  id="modalContent" class="modeEdition Introduction1 loginOk"><i
-				class="fa fa-sharp fa-light fa-pen-to-square"></i>Modifier</p>
+			<!-- N'apparait pas sur la home page de la maquette ??
+			<p id="introduction1" class="modalContent Introduction ">
+			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>-->
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice).</p>
 		</article>
-		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
-			<p  id="modalContent" class="modeEdition Introduction2 loginOk"><i
-				class="fa fa-sharp fa-light fa-pen-to-square"></i>Modifier</p>
-		</figure>
+		
 	</section>
 	<section class="portfolio" id="portfolio">
 		<h2>Mes Projets</h2>
-		<p  id="modalContent" class="modeEdition projets loginOk"><i
-			class="fa fa-sharp fa-light fa-pen-to-square"></i>Modifier</p>
+		<p id="modal" class="modalContent projets">
+			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
 
 		<div class="gallery">
 			<!-- Importer dynamiquement la gallerie 
@@ -127,6 +137,7 @@
 </footer>
 
 <script src="index.js"></script>  <!-- à la fin de Body pour ne pas bloquer le chargement de la page -->
+<script src="login.js"></script>
 <script src="modale.js"></script>
 </body>
 </html>
