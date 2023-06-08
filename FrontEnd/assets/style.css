@@ -333,9 +333,9 @@ footer[href="./login.html"] {
 	display: none;
 }
 
-.modalContent.show {
+.show {
 	display: block;
-  }
+}
 
 #modal1 {
 	background-color: black;

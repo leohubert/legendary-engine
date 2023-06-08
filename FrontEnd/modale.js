@@ -1,3 +1,5 @@
+
+
 // Fonction pour afficher la fenêtre modale lorsqu'un utilisateur est connecté
 function showLoggedInModal() {
     const modal = document.querySelector('aside[data-target="modal1"]');
