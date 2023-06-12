@@ -13,30 +13,65 @@
 </head>
 
 <body>
-	<!-- Fenetre Modale -->
-	<aside id="modal1" class="modalContent modeEdition loginOk" aria-hidden="true" role="dialog" aria-label="titlemodal">
-		<nav id="loginOk" class="modeEdition">
-		  <ul class="barreEdition">
-			<li class="barreNoire"><i class="fa-regular fa-pen-to-square"></i>Mode édition</li>
-			<li class="publier"><button class="publier-btn">Publier les changements</button></li>
-		  </ul>
-		</nav>
-	  </aside>
-<!-- 
-	  <aside id="modal2" class="modalContent galerie" aria-modal="true" aria-hidden="true" role="modal" aria-label="titlemodal">
+	
+	<!-- Fenêtre modale 1&2 -->
+	  <aside id="modal1" class="modalContent galerie" aria-modal="true" aria-hidden="true" role="modal" aria-label="titlemodal">
 		<div class="modalPhoto">
+			<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="galleryPhoto">
+                <h2>Galerie photo</h2>
+                <div class="modalGallery"></div>
+                <hr>
+                <button id="ajout-image">Ajouter une photo</button>
+                <button id="supprimer-gallery">Supprimer la galerie</button>
+            </div>
+        </div>
+    </aside>
+
+    <aside id="modal2" class="modalContent ajout" aria-hidden="true" role="modal" aria-label="titlemodal">
+        <div class="modalAjout">
+            <span id="arrowBack">
+                <i class="fa fa-light fa-arrow-left"></i>
+            </span>
+            <h2>Ajout photo</h2>
+            <form id="ajoutPhoto-form" enctype="multipart/form-data">
+                <div id="imgContainer" class="imgContainer">
+                    <i id="ajoutPhotoIcon" class="fa fa-solid fa-image"></i>
+                    <label for="ajoutPhotoBtn" id="ajoutPhotoLabel" class="photoBouton"> + Ajouter photo</label>
+                    <input type="file" name="ajoutPhotoBouton" id="ajoutPhotoBtn" accept=".png, .jpg, .jpeg">
+                    <p id="pContainer">jpg, png: 4mo max</p>
+                </div>
+                <label for="titrePhoto">Titre</label>
+                <span id="titleErrorMessage" class="error"></span>
+                <input id="titrePhoto" type="text" name="titrePhoto" placeholder="">
+                
+                <label for="categoriePhoto">Catégorie</label>
+                <select name="categoriePhoto" id="categoriePhoto"></select>
+                
+                <hr>
+                <input type="submit" value="valider" id="validerBtn" class="btn btn-default">
+            </form>
 			
 		</div>
 	</aside>
-	-->
+	
 <header>
+	<!-- Barre d'édition -->
+	<div id="barreEdition" class="modalContent modeEdition loginOk" aria-hidden="true" role="dialog" aria-label="titlemodal">
+		<nav id="loginOk" class="modeEdition">
+		  <ul class="barreEdition">
+			<li class="barreNoire"><i class="fa-regular fa-pen-to-square"></i>Mode édition</li>
+			<li class="publier"><button class="publier-btn">publier les changements</button></li>
+		  </ul>
+		</nav>
+	</div>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
 			<li><a class="login" href="./login.html">login</a></li>
-			<li><a class="loginOut modalContent logout" href="#" id="logout">logout</a></li>
+			<li><a class="loginOk modalContent logout" href="#" id="logout">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -45,13 +80,12 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
-			<p id="introduction1" class="modalContent Introduction2">
+			<p id="modifierPhoto" class="modalContent Introduction2 modeEdition">
 				<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
 		</figure>
 		<article>
-			<!-- N'apparait pas sur la home page de la maquette ??
-			<p id="introduction1" class="modalContent Introduction ">
-			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>-->
+			<p id="introduction1" class="modalContent Introduction modeEdition">
+			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -61,57 +95,13 @@
 	</section>
 	<section class="portfolio" id="portfolio">
 		<h2>Mes Projets</h2>
-		<p id="modal" class="modalContent projets">
+		<p id="modifierProjets" class="modalContent Introduction2 modeEdition">
 			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
 
 		<div class="gallery">
 			<!-- Importer dynamiquement la gallerie 
-			<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
 			-->
-		
+		</div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>

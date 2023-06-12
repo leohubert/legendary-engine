@@ -1,38 +1,34 @@
-
-
-// Fonction pour afficher la fenêtre modale lorsqu'un utilisateur est connecté
-function showLoggedInModal() {
-    const modal = document.querySelector('aside[data-target="modal1"]');
-    modal.style.display = 'block';
-    modal.setAttribute('aria-hidden', 'false');
-}
-
 // Événement DOMContentLoaded pour exécuter le code lorsque le contenu est chargé
 document.addEventListener('DOMContentLoaded', () => {
     // Vérifier si le token est présent dans le stockage de session
     const token = sessionStorage.getItem('token');
     if (token) {
-        // Vérifier l'état de connexion
-        let loginOk = sessionStorage.getItem('loginOk');
-        let loginOut = sessionStorage.getItem('loginOut');
-        console.log(loginOk, loginOut);
-        
+          // Masquer l'élément login lorsque l'utilisateur est connecté
+          const loginElement = document.querySelector('.login');
+          loginElement.style.display = 'none';          
         // Afficher les éléments liés à la connexion réussie
-        if (loginOk) {
-            const isLoggedInList = document.querySelectorAll('.loginOk');
+            const isLoggedInList = document.querySelectorAll('.modeEdition');
             isLoggedInList.forEach(inList => {
-                inList.style.display = 'flex';
+                inList.style.display = 'block';
             });
+        // Cacher la div gallery lorsque l'utilisateur est connecté
+    const galleryElement = document.querySelector('.categories');
+    galleryElement.style.display = 'none';
         }
-        
         // Masquer les éléments liés à la déconnexion
-        if (loginOut) {
-            const isLoggedOutList = document.querySelectorAll('.loginOut');
+        else {
+            const isLoggedOutList = document.querySelectorAll('.logout');
             isLoggedOutList.forEach(outList => {
                 outList.style.display = 'none';
             });
         }
-    }
+        // Fonction pour afficher la fenêtre modale lorsqu'un utilisateur est connecté
+function showLoggedInModal() {
+    const modal = document.querySelector('aside[data-target="modal1"]');
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+}
+ 
 });
 
 // Déclaration de la variable modale

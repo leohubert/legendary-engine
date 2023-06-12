@@ -1,383 +1,388 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+	/* http://meyerweb.com/eric/tools/css/reset/
+	v2.0 | 20110126
+	License: none (public domain)
+	*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	background-color: #FFFEF8;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/** end reset css**/
-body {
-	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
-	font-size: 14px;
-}
-header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0
-}
-section {
-	margin: 50px 0
-}
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+		background-color: #FFFEF8;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
 
-h1{
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
-}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	/** end reset css**/
+	body {
+		max-width: 1140px;
 
-h1 > span {
-	font-family: 'Work Sans';
-	font-size:10px;
-	letter-spacing: 0.1em;
-}
+		margin:auto;
+		font-family: 'Work Sans' ;
+		font-size: 14px;
+		display: flex;
+		flex-direction: column;
+	}
+	header {
+		display: flex;
+		justify-content: space-between;
+		margin: 50px 0
+	}
+	section {
+		margin: 50px 0
+	}
 
-h2{
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
-}
-nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
+	h1{
+		display: flex;
+		flex-direction: column;
+		font-family: 'Syne';
+		font-size: 22px;
+		font-weight: 800;
+		color: #B1663C
+	}
 
-}
-nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
-}
+	h1 > span {
+		font-family: 'Work Sans';
+		font-size:10px;
+		letter-spacing: 0.1em;
+	}
 
-li:hover {
-	color: #B1663C;
-}
-#introduction {
-	display: flex;
-	align-items: center;
-}
-#introduction figure {
-	flex: 1
-}
-#introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
-}
+	h2{
+		font-family: 'Syne';
+		font-weight: 700;
+		font-size: 30px;
+		color: #1D6154
+	}
+	nav ul {
+		display: flex;
+		align-items: center;
+		list-style-type: none;
 
-#introduction article {
-	flex: 1
-}
-#introduction h2 {
-	margin-bottom: 1em;
-}
+	}
+	nav li {
+		padding: 0 10px;
+		font-size: 1.2em;
+	}
 
-#introduction p {
-	margin-bottom: 0.5em;
-}
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
-}
-.gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
-}
+	li:hover {
+		color: #B1663C;
+	}
+	#introduction {
+		display: flex;
+		align-items: center;
+	}
+	#introduction figure {
+		flex: 1
+	}
+	#introduction img {
+		display: block;
+		margin: auto;
+		width: 80%;
+	}
 
-.gallery img {
-	width: 100%;
+	#introduction article {
+		flex: 1
+	}
+	#introduction h2 {
+		margin-bottom: 1em;
+	}
 
-}
-.categories {
-	display: flex;
-	justify-content: center;
-}
+	#introduction p {
+		margin-bottom: 0.5em;
+	}
+	#portfolio h2 {
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.gallery {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 20px;
+		grid-row-gap: 20px;
+	}
 
-.categories>button {
-	background-color: #FFFEF8;
-	border: 1px green solid;
-	border-radius: 20px;
-	padding: 10px;
-	font-size: 20px;
-	margin-left: 1rem;
-	margin-bottom: 3rem;
-	font-family: "Work Sans";
-	font-weight: 600;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
+	.gallery img {
+		width: 100%;
 
-.categories>button:hover {
-	background-color: #1d6154;
-	color: #fff;
-}
+	}
+	.categories {
+		display: flex;
+		justify-content: center;
+	}
 
-#contact {
-	width: 50%;
-	margin: auto;
-}
+	.categories>button {
+		background-color: #FFFEF8;
+		border: 1px green solid;
+		border-radius: 20px;
+		padding: 10px;
+		font-size: 20px;
+		margin-left: 1rem;
+		margin-bottom: 3rem;
+		font-family: "Work Sans";
+		font-weight: 600;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
 
-#contact > * {
-	text-align: center;
-}
+	.categories>button:hover {
+		background-color: #1d6154;
+		color: #fff;
+	}
 
-#contact h2 {
-	margin-bottom: 20px;
-}
+	#contact {
+		width: 50%;
+		margin: auto;
+	}
 
-#contact form {
-	text-align: left;
-	margin-top: 30px;	
-	display: flex;
-	flex-direction: column;
-}
+	#contact > * {
+		text-align: center;
+	}
 
-#contact input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
+	#contact h2 {
+		margin-bottom: 20px;
+	}
 
-#contact label {
-	margin: 2em 0 1em 0;
-}
+	#contact form {
+		text-align: left;
+		margin-top: 30px;	
+		display: flex;
+		flex-direction: column;
+	}
 
-#contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
+	#contact input {
+		height: 50px;
+		font-size: 1.2em;
+		border: none;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	}
 
-/** Page Login **/
+	#contact label {
+		margin: 2em 0 1em 0;
+	}
 
-.login {
-	color: black;
+	#contact textarea {
+		border: none;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	}
+
+	/** Page Login **/
+
+	.login {
+		color: black;
+		text-decoration: none;
+	}
+
+	.login:hover {
+		color: #B1663C;
+	}
+
+	input[type="submit"] {
+		font-family: 'Syne';
+		font-weight: 700;
+		color: white;
+		background-color: #1D6154;
+		margin: 2em auto;
+		width: 180px;
+		text-align: center;
+		border-radius: 60px;
+	}
+
+	#loginPage {
+		width: 35%;
+		margin: auto;
+		margin-top: 10%;
+	}
+
+	#loginPage > * {
+		text-align: center;
+	}
+
+	#loginPage h2 {
+		margin-bottom: 20px;
+	}
+
+	#loginPage form {
+		text-align: left;
+		margin: 30px 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#loginPage input {
+		height: 50px;
+		font-size: 120%;
+		border: none;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+		margin-bottom: 20px;
+	}
+
+	#loginPage label {
+		margin: 10px 0;
+		font-weight: bold;
+	}
+
+	#loginPage textarea {
+		border: none;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	}
+	/** pour mettre login en gras sur la page login.html **/
+	li a.login[href="./login.html"] {
+		font-weight: 900;
+	}
+
+	.li-login {
+		color: black;
+		text-decoration: none;
+		font-weight: 200;
+	}
+
+	#submit {
+		font-family: "Syne";
+		font-weight: 700;
+		color: white;
+		background-color: #1d6154;
+		margin: 2em auto;
+		width: 210px;
+		text-align: center;
+		border-radius: 60px;
+	}
+
+	#mdpOublie > a {
+		text-align: center;
+		display: block;
+		color: #3D3D3D;
+		margin: 5% 0 15% 0;
+		font-weight: bold;
+	}
+
+	#error-message {
+		text-align: center;
+		display: block;
+		font-weight: bold;
+	}
+
+	/** Footer **/
+
+	footer {
+		width: 100%;
+		background-color: white;
+	}
+	
+	footer nav {
+		display: flex;
+		justify-content: flex-end;
+		margin: 2em;
+		padding: 0;
+		background-color: white;
+	}
+
+	footer nav li {
+		background-color: white ;
+	}
+
+	footer[href="./login.html"] {
+		position: absolute;
+	}
+	/** Création de la fenêtre modale **/
+	/*tous les éléments masqués par défaut */
+	.modalContent {
+		display: none;
+	}
+
+	#barreEdition {
+		background-color: black;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		font-family: 'Work Sans';
+		font-size: 14px;
+		padding: 1%;
+	}
+
+	.publier-btn {
+		background-color: white;
+		color: black;
+		border-radius: 60px;
+		font-family: Work Sans;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.publier {
+		background-color: black;
+	}
+
+	#barreEdition nav ul {
+		background-color: black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.barreNoire {
+		color: white;
+		background-color: black;
+	}
+
+	.barreNoire .fa-regular {
+		color: white;
+		background-color: black;
+		margin: 5px;
+	}
+	.barreNoire li {
+	color: white;
+	}
+
+	li .barreNoire{
+		color: white;
+		text-decoration: none;
+	}
+
+	#logout {
+		color: black;
 	text-decoration: none;
-}
+	}
 
-.login:hover {
-	color: #B1663C;
-}
+	#modifierPhoto {
+		padding: 2% 0 0 10%;
+	}
 
-.li-login:hover {
-	color: #B1663C;
-}
-
-input[type="submit"] {
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin: 2em auto;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px;
-}
-
-#loginPage {
-	width: 35%;
-	margin: auto;
-	margin-top: 10%;
-}
-
-#loginPage > * {
-	text-align: center;
-}
-
-#loginPage h2 {
-	margin-bottom: 20px;
-}
-
-#loginPage form {
-	text-align: left;
-	margin: 30px 0;
-	display: flex;
-	flex-direction: column;
-}
-
-#loginPage input {
-	height: 50px;
-	font-size: 120%;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	margin-bottom: 20px;
-}
-
-#loginPage label {
-	margin: 10px 0;
-	font-weight: bold;
-}
-
-#loginPage textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-/** pour mettre login en gras sur la page login.html **/
-li a.login[href="./login.html"] {
-	font-weight: 900;
-}
-
-.li-login {
-	color: black;
-	text-decoration: none;
-	font-weight: 200;
-}
-
-#submit {
-	font-family: "Syne";
-	font-weight: 700;
-	color: white;
-	background-color: #1d6154;
-	margin: 2em auto;
-	width: 210px;
-	text-align: center;
-	border-radius: 60px;
-}
-
-#mdpOublie > a {
-	text-align: center;
-	display: block;
-	color: #3D3D3D;
-	margin: 5% 0 15% 0;
-	font-weight: bold;
-}
-
-#error-message {
-	text-align: center;
-	display: block;
-	font-weight: bold;
-}
-
-/** Footer **/
-
-footer {
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background-color: white;
-
-}
-  
-footer nav {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em;
-	padding: 0;
-	background-color: white;
-
-}
-  
-footer[href="./login.html"] {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background-color: white;
-
-}
-
-/** Création de la fenêtre modale **/
-/*tous les éléments masqués par défaut */
-.modalContent {
-	display: none;
-}
-
-.show {
-	display: block;
-}
-
-#modal1 {
-	background-color: black;
-	width: 100%;
-	height: 40px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	font-family: 'Work Sans';
-	font-size: 14px;
-  }
-  
-.publier-btn {
-	background-color: white;
-	color: black;
-	border-radius: 5px;
-  }
-
-.publier {
-	background-color: black;
-}
-
-#modal1 nav ul {
-	background-color: black;
-	display: flex;
-    justify-content: center;
-	align-items: center;
-  }
-
-.barreNoire {
-	color: white;
-    background-color: black;
-}
-
-.barreNoire .fa-regular {
-	color: white;
-	background-color: black;
-}
-.barreNoire li {
-color: white;
-}
-
-li .barreNoire{
-	color: white;
-	text-decoration: none;}
+	#modifierProjets {
+		padding-bottom: 3%;
+	}

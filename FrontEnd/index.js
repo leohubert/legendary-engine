@@ -45,29 +45,40 @@ function traitementCategories(categories) {
   btnAll.textContent = 'Tous';
   divBoutons.appendChild(btnAll);
 
-// Créer les boutons de catégories
-categories.forEach(categorie => {
-  const button = document.createElement('button');
-  button.textContent = categorie.name;
-  button.id = categorie.id;
-  divBoutons.appendChild(button);
-  divPortfolio.querySelector('h2').insertAdjacentElement('afterend', divBoutons);
+  // Créer les boutons de catégories
+  categories.forEach(categorie => {
+    const button = document.createElement('button');
+    button.textContent = categorie.name;
+    button.id = categorie.id;
+    divBoutons.appendChild(button);
+  });
+
+  // Vérifier si l'utilisateur est connecté
+  const loginOk = 'true';
+
+  // Afficher ou cacher les divBoutons en fonction de l'état de connexion de l'utilisateur
+  if (loginOk) {
+    divBoutons.style.display = 'none';
+  } else {
+    divPortfolio.querySelector('h2').insertAdjacentElement('afterend', divBoutons);
+  }
 
   // Evénement au clic sur les boutons
-  button.addEventListener('click', function () {
-    const id = this.id;
-    document.querySelectorAll('.gallery img').forEach(image => {
-      if (image.getAttribute('category') === id) {
-         // Si l'image a la catégorie correspondante, l'afficher
-         image.parentElement.style.display = 'block';
+  divBoutons.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function () {
+      const id = this.id;
+      document.querySelectorAll('.gallery img').forEach(image => {
+        if (image.getAttribute('category') === id) {
+          // Si l'image a la catégorie correspondante, l'afficher
+          image.parentElement.style.display = 'block';
         } else {
           // Sinon, masquer l'image
           image.parentElement.style.display = 'none';
-      }
+        }
+      });
     });
   });
-});
-
+}
   // Pour le bouton Tous - réinitialise l'affichage 
   btnAll.addEventListener('click', function () {
       // Sélectionner toutes les images de la galerie
@@ -76,7 +87,6 @@ categories.forEach(categorie => {
       image.parentElement.style.display = 'block';
     });
   });
-};
 
 //Pour récupérer et traiter les catégories avec boutons
 function boutonsFilres() {
@@ -85,5 +95,19 @@ function boutonsFilres() {
   traitementCategories(categories);
   });
 }
+
+
+// Fonction de déconnexion
+function logout() {
+  // Supprimer le token du stockage de session
+  sessionStorage.removeItem('token');
+  // Redirection vers la page de connexion
+  window.location.href = 'index.html';
+}
+
+// Gestionnaire d'événement pour le bouton de déconnexion
+const logoutButton = document.getElementById('logout');
+logoutButton.addEventListener('click', logout);
+
 
 

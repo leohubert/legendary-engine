@@ -30,16 +30,15 @@ loginOk.addEventListener('click', async (event) => {
       const data = await response.json();
       // Récupérer le token d'authentification
       const token = data.token;
-      // Stocker le token dans le stockage de session
+      // Stocker le token- sessionStorage pour déconnexion lors de la fermeture onglet/fenêtre
       sessionStorage.setItem('token', token);
-      
+      // Redirection vers la page d'accueil
+      window.location.href = 'index.html';
       // Après l'authentification réussie, afficher le contenu d'édition
-      const modalElements = document.querySelectorAll('.modal1');
+      const modalElements = document.querySelectorAll('.modeEdition');
       modalElements.forEach((element) => {
         element.classList.add('show');
       });
-      // Redirection vers la page d'accueil
-      window.location.href = 'index.html';
     }
     else {
       let errorMsg = document.getElementById('error-message');
@@ -52,16 +51,4 @@ loginOk.addEventListener('click', async (event) => {
 });
 }
 
-
-// Fonction de déconnexion
-function logout() {
-  // Supprimer le token du stockage de session
-  sessionStorage.removeItem('token');
-  // Redirection vers la page de connexion
-  window.location.href = 'index.html';
-}
-
-// Gestionnaire d'événement pour le bouton de déconnexion
-const logoutButton = document.getElementById('logout');
-logoutButton.addEventListener('click', logout);
 });
