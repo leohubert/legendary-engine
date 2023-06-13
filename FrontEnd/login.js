@@ -50,5 +50,4 @@ loginOk.addEventListener('click', async (event) => {
   
 });
 }
-
 });

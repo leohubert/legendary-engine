@@ -1,5 +1,5 @@
 /** Gère l'affichage de la page d'accueil **/
-
+function ajouterGalerie(){
 fetch("http://localhost:5678/api/works")
   .then((res) => res.json())
   .then((data) => {
@@ -27,7 +27,8 @@ fetch("http://localhost:5678/api/works")
   })
   .catch((error) => console.error(error));
 
-
+}
+ajouterGalerie(); // Appel de la fonction
 /** Partie projets et filtres **/ 
 
 function recupererCategories() {
@@ -45,7 +46,7 @@ function traitementCategories(categories) {
   btnAll.textContent = 'Tous';
   divBoutons.appendChild(btnAll);
 
-  // Créer les boutons de catégories
+  // Créer les boutons de catégorieslogout
   categories.forEach(categorie => {
     const button = document.createElement('button');
     button.textContent = categorie.name;
@@ -54,14 +55,15 @@ function traitementCategories(categories) {
   });
 
   // Vérifier si l'utilisateur est connecté
-  const loginOk = 'true';
+const token = sessionStorage.getItem('token');
+const utilisateurConnecte = token !== null && token !== ''; // vérifie si présence d'un token 
 
-  // Afficher ou cacher les divBoutons en fonction de l'état de connexion de l'utilisateur
-  if (loginOk) {
-    divBoutons.style.display = 'none';
-  } else {
-    divPortfolio.querySelector('h2').insertAdjacentElement('afterend', divBoutons);
-  }
+// Afficher ou cacher les divBoutons en fonction de l'état de connexion de l'utilisateur
+if (utilisateurConnecte) {
+  divBoutons.style.display = 'none';
+} else {
+  divPortfolio.querySelector('h2').insertAdjacentElement('afterend', divBoutons);
+}
 
   // Evénement au clic sur les boutons
   divBoutons.querySelectorAll('button').forEach(button => {
@@ -78,7 +80,7 @@ function traitementCategories(categories) {
       });
     });
   });
-}
+
   // Pour le bouton Tous - réinitialise l'affichage 
   btnAll.addEventListener('click', function () {
       // Sélectionner toutes les images de la galerie
@@ -87,6 +89,7 @@ function traitementCategories(categories) {
       image.parentElement.style.display = 'block';
     });
   });
+};
 
 //Pour récupérer et traiter les catégories avec boutons
 function boutonsFilres() {

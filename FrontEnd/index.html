@@ -15,18 +15,7 @@
 <body>
 	
 	<!-- Fenêtre modale 1&2 -->
-	  <aside id="modal1" class="modalContent galerie" aria-modal="true" aria-hidden="true" role="modal" aria-label="titlemodal">
-		<div class="modalPhoto">
-			<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
-            <div class="galleryPhoto">
-                <h2>Galerie photo</h2>
-                <div class="modalGallery"></div>
-                <hr>
-                <button id="ajout-image">Ajouter une photo</button>
-                <button id="supprimer-gallery">Supprimer la galerie</button>
-            </div>
-        </div>
-    </aside>
+	 
 
     <aside id="modal2" class="modalContent ajout" aria-hidden="true" role="modal" aria-label="titlemodal">
         <div class="modalAjout">
@@ -65,13 +54,13 @@
 		  </ul>
 		</nav>
 	</div>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
 			<li><a class="login" href="./login.html">login</a></li>
-			<li><a class="loginOk modalContent logout" href="#" id="logout">logout</a></li>
+			<li><a class="loginOk logout" href="#" id="logout">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -80,12 +69,12 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
-			<p id="modifierPhoto" class="modalContent Introduction2 modeEdition">
-				<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
+			<a href="#" id="modifierPhoto" class="modalContent modeEdition">
+				<i class="fa-regular fa-pen-to-square"></i>Modifier</a>
 		</figure>
 		<article>
-			<p id="introduction1" class="modalContent Introduction modeEdition">
-			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
+			<a href="#" id="introduction1" class="modalContent modeEdition">
+			<i class="fa-regular fa-pen-to-square"></i>Modifier</a>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -95,8 +84,24 @@
 	</section>
 	<section class="portfolio" id="portfolio">
 		<h2>Mes Projets</h2>
-		<p id="modifierProjets" class="modalContent Introduction2 modeEdition">
-			<i class="fa-regular fa-pen-to-square"></i>Modifier</p>
+		<a href="#" id="modifierProjets" class="modalContent modeEdition">
+			<i class="fa-regular fa-pen-to-square"></i>Modifier</a>
+
+		<!-- Fenetre modale 1 -->
+		<div id="modal1" class="modalContent galerie" aria-modal="true" aria-hidden="true" role="modal" aria-label="titlemodal">
+			<div class="modalPhoto overlay"></div>
+				<div class="modal">
+					<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+					<div class="galleryPhoto">
+					<h2>Galerie photo</h2>
+					<div class="modalGallery"></div>
+					<hr>
+					<button id="ajout-image">Ajouter une photo</button>
+					<button id="supprimer-gallery">Supprimer la galerie</button>
+				</div>
+			</div>
+		</div>
+
 
 		<div class="gallery">
 			<!-- Importer dynamiquement la gallerie 
