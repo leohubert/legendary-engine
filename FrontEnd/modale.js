@@ -1,8 +1,8 @@
   // Événement DOMContentLoaded pour exécuter le code lorsque le contenu est chargé
   document.addEventListener('DOMContentLoaded', () => {
     // Vérifier si le token est présent dans le stockage de session
-    const token = sessionStorage.getItem('token');
-    if (token) {
+    const UserToken = localStorage.getItem('token');
+    if (UserToken) {
       // Masquer l'élément login lorsque l'utilisateur est connecté
       const loginElement = document.querySelector('.login');
       loginElement.style.display = 'none';
@@ -62,6 +62,7 @@ const openModal = function (e) {
             });
         });
 }
+
 function modifierProjetsModal (project) {
     const modalGalerie = document.querySelector(".modalGalerie");
   
@@ -89,7 +90,8 @@ function modifierProjetsModal (project) {
         
       fetch(`http://localhost:5678/api-docs/#/default/delete_works__id_`, {
         method: 'DELETE',
-      })
+        headers: {Authentication: `Bearer ${UserToken}`}
+              })
       .then(function(response) {
         // Traitez la réponse de la suppression de l'élément
         if (response.ok) {

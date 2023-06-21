@@ -1,11 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-// Sélection des éléments du formulaire
-const form = document.querySelector('form');
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const errorMessage = document.querySelector('#error-message');
-const button = document.querySelector('#submit')
+let UserToken;
 
+document.addEventListener('DOMContentLoaded', () => {
 // Pour la soumission du formulaire
 const loginOk = document.querySelector('#submit');
 if (loginOk) {
@@ -29,9 +24,10 @@ loginOk.addEventListener('click', async (event) => {
       // Connexion réussie
       const data = await response.json();
       // Récupérer le token d'authentification
-      const token = data.token;
-      // Stocker le token- sessionStorage pour déconnexion lors de la fermeture onglet/fenêtre
-      sessionStorage.setItem('token', token);
+      const UserToken = data.token;
+      console.log(UserToken); // Affiche la valeur du token dans la console
+      // Stocker le token- localStorage pour déconnexion lors de la fermeture onglet/fenêtre
+      localStorage.setItem('token', UserToken);
       // Redirection vers la page d'accueil
       window.location.href = 'index.html';
       // Après l'authentification réussie, afficher le contenu d'édition
