@@ -431,7 +431,11 @@
 		max-width: 1140px;
 		margin:auto;
 	}
-
+	#modal3 {
+		justify-content: center;
+		max-width: 1140px;
+		margin:auto;
+	}
 	.modal {
 		width: 100%;
 		max-width: 700px;

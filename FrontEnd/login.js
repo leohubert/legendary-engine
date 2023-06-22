@@ -1,4 +1,4 @@
-let UserToken;
+const token = sessionStorage.getItem('token');
 
 document.addEventListener('DOMContentLoaded', () => {
 // Pour la soumission du formulaire
@@ -24,10 +24,10 @@ loginOk.addEventListener('click', async (event) => {
       // Connexion réussie
       const data = await response.json();
       // Récupérer le token d'authentification
-      const UserToken = data.token;
-      console.log(UserToken); // Affiche la valeur du token dans la console
-      // Stocker le token- localStorage pour déconnexion lors de la fermeture onglet/fenêtre
-      localStorage.setItem('token', UserToken);
+      const token = data.token;
+      console.log(token); // Affiche la valeur du token dans la console
+      // Stocker le token- sessionStorage pour déconnexion lors de la fermeture onglet/fenêtre
+      sessionStorage.setItem('token', token);
       // Redirection vers la page d'accueil
       window.location.href = 'index.html';
       // Après l'authentification réussie, afficher le contenu d'édition

@@ -38,7 +38,7 @@ function recupererCategories() {
 
 // Effectue les catégories
 function traitementCategories(categories) {
-  const projetsTitle = document.getElementById('portfolio');
+  const divPortfolio = document.getElementById('portfolio');
   const divBoutons = document.createElement('div');
   divBoutons.className = 'categories';
 
@@ -55,14 +55,14 @@ function traitementCategories(categories) {
   });
 
   // Vérifier si l'utilisateur est connecté
-const UserToken = sessionStorage.getItem('token');
-const utilisateurConnecte = UserToken !== null && UserToken !== ''; // vérifie si présence d'un token 
+const token = sessionStorage.getItem('token');
+const utilisateurConnecte = token !== null && token !== ''; // vérifie si présence d'un token 
 
 // Afficher ou cacher les divBoutons en fonction de l'état de connexion de l'utilisateur
 if (utilisateurConnecte) {
   divBoutons.style.display = 'none';
 } else {
-  projetsTitle.querySelector('h2').insertAdjacentElement('afterend', divBoutons);
+  divPortfolio.querySelector('h2').insertAdjacentElement('afterend', divBoutons);
 }
 
   // Evénement au clic sur les boutons
@@ -103,7 +103,7 @@ function boutonsFilres() {
 // Fonction de déconnexion
 function logout() {
   // Supprimer le token du stockage de session
-  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
   // Redirection vers la page de connexion
   window.location.href = 'index.html';
 }

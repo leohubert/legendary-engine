@@ -88,8 +88,7 @@
 			<a href="#" id="modifierProjets" class="modalContent modeEdition">
 				<i class="fa-regular fa-pen-to-square"></i> modifier
 			</a>			
-			<div class="categories">
-		</div>
+			
 		</div>
 		<!-- Fenetre modale 1 -->
 		<div id="modal1" class="modalContent galerie" aria-modal="true" aria-hidden="true" role="dialog" aria-label="titlemodal">
@@ -99,7 +98,7 @@
 					<div class="galleryPhoto">
 					<h2>Galerie photo</h2>
 					<div class="modalGalerie"></div>
-					<hr>
+					<hr> <!-- représenter une ligne horizontale-->
 					<div class="modalBoutton">
 					<button id="ajoutImage">Ajouter une photo</button>
 					<button id="supprimerGalerie">Supprimer la galerie</button>
@@ -108,7 +107,31 @@
 			</div>
 		</div>
 
-
+			<!-- Fenetre modale Ajouter photo -->
+		<div id="modal3" class="modalContent ajout modal" aria-hidden="true" role="modal" aria-label="titlemodal">
+			<div class="modalPhoto overlay">
+			  <div class="modal">
+				<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+				<button id="retour"><i class="fa fa-light fa-arrow-left"></i></button>
+				<h2>Ajout photo</h2>
+				<div id="imgContainer" class="imgContainer">
+				  <i id="ajoutPhotoIcon" class="fa fa-solid fa-image"></i>
+				  <label for="ajoutPhotoBtn" id="ajoutPhotoLabel" class="photoBouton"> + Ajouter photo</label>
+				  <input type="file" name="ajoutPhotoBouton" id="ajoutPhotoBtn" accept=".png, .jpg, .jpeg">
+				  <p id="type">jpg, png: 4mo max</p>
+				</div>
+				<label for="titrePhoto">Titre</label>
+				<span id="titleErrorMessage" class="error"></span>
+				<input id="titrePhoto" type="text" name="titrePhoto" placeholder="">
+				<label for="categoriePhoto">Catégorie</label>
+				<select name="categoriePhoto" id="categoriePhoto">
+				  </select>
+				 <hr>
+				<button id="saveButton">Valider</button>
+			  </div>
+			</div>
+		  </div>
+		  
 		<div class="gallery">
 			<!-- Importer dynamiquement la gallerie 
 			-->
