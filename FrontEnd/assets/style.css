@@ -420,28 +420,34 @@
 		width: 100vw;
 		height: 100vh;
 		padding: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.overlay {
 		background-color: rgba(0, 0, 0, 0.3);
 	}
 
-	#modal1 {
+	.fenetres {
+		position: relative;
+	  }
+	  
+	  #modal1,
+	  #modal3 {
 		justify-content: center;
 		max-width: 1140px;
-		margin:auto;
-	}
-	#modal3 {
-		justify-content: center;
-		max-width: 1140px;
-		margin:auto;
-	}
+		margin: auto;
+	  }
+
+
 	.modal {
 		width: 100%;
 		max-width: 700px;
 		min-width: 300px;
-		padding: 50px;
+		padding: 70px;
 		position: absolute;
+		border-radius: 20px;
 	}
 
 	button .closeModal {
@@ -451,23 +457,109 @@
 
 	}
 
-	.closeModal {
+.closeModal {
 	background-color: #FFFEF8;
 	border: none;
 	float: right;
 	font-size: 25px;
   }
 
-  .galleryPhoto h2 {
+  .galleryPhoto h2,
+  .modal h2 {
 	font-family: 'Work Sans';
 	color: black;
 	font-weight: 400;
-	font-size: 26px;  
+	font-size: 26px;
 	margin: 5%;
+  }
+  
+  #imgContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 40px 0;
+	background-color: #E8F1F6;
+    border-radius: 10px;
+
+}
+
+#ajoutPhotoIcon{
+	font-size: 50px;
+	color: 	#B9C5CC;
+}
+
+#type {
+	background-color:#E8F1F6;
+}
+#imgPreview {
+	width: 100px;
+	display: block;
+}
+
+.titreCategories {
+	display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.imgContainer input { /* cacher le bouton browser par défaut */
+	display: none;
+}
+
+#ajoutPhotoLabel{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #306685;
+	background-color:#CBD6DC;
+	margin : 2em auto ;
+	width: 180px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 60px ;
+	display: flex;
+	justify-content: center;
+}
+
+
+#ajoutPhoto-form input, select {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#ajoutPhoto-form label {
+	margin: 2em 0 1em 0;
+}
+#ajoutPhoto-form textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#categoriePhoto{
+	color: black;
 }
 
 .modalPhoto button {
 	display: flex;
+    border: none;
+	font-size: 20px;
+	border-radius: 40px;
+	color: white;
+	background-color: #A7A7A7;
+}
+
+.saveButton {
+	border: 1px;
+	border-radius: 40px;
+	padding: 10px 30px;
+	font-size: 14px;
+	font-family: "Syne";
+	display: flex;
+    max-width: 350px;
+    justify-content: center;
+
 }
 
 .deleteTrashIcon{
@@ -478,36 +570,42 @@
 	border-radius: 5px;
   }
 
-  .modalGalerie {
+.modalGalerie {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	margin-bottom: 50px;
   }
 
-  	.figureModal{
+.figureModal{
 	width: 20%;
 	display: grid;
     margin: 5px 0px 5px 0px;  
 	}
 
-	.modalBoutton {
-		display: flex;
-		flex-direction: column;
+.modalBoutton {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
 	}
 	
-	#ajoutImage {
+#ajoutImage {
 	background-color: #1D6154;
 	color: white;
 	border: 1px;
 	border-radius: 40px;
-	padding: 10px;
+	padding: 10px 30px;
 	font-size: 14px;
 	font-family: "Syne";
+	display: flex;
+    max-width: 350px;
+    justify-content: center;
 	}
 
-	#supprimerGalerie {
+#supprimerGalerie {
 		background-color: #fff;
 		border: none;
 		font-family: 'Syne';
@@ -516,3 +614,4 @@
 		font-weight: 200;
 		font-size: 14px;
 	}
+

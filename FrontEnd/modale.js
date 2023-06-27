@@ -56,6 +56,7 @@ const openModal = function (e) {
 const openAddModal = function (e) {
   e.preventDefault();
   const addModal = document.getElementById('modal3');
+  modal1.style.display = 'none';  // pour cacher modal1 
   addModal.style.display = 'flex';
   addModal.setAttribute('aria-hidden', 'false');
 
