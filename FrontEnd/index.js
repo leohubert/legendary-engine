@@ -26,7 +26,6 @@ fetch("http://localhost:5678/api/works")
     boutonsFilres(); // Fonction pour afficher les boutons de catégorie
   })
   .catch((error) => console.error(error));
-
 }
 ajouterGalerie(); // Appel de la fonction
 /** Partie projets et filtres **/ 
@@ -98,19 +97,6 @@ function boutonsFilres() {
   traitementCategories(categories);
   });
 }
-
-
-// Fonction de déconnexion
-function logout() {
-  // Supprimer le token du stockage de session
-  sessionStorage.removeItem('token');
-  // Redirection vers la page de connexion
-  window.location.href = 'index.html';
-}
-
-// Gestionnaire d'événement pour le bouton de déconnexion
-const logoutButton = document.getElementById('logout');
-logoutButton.addEventListener('click', logout);
 
 
 

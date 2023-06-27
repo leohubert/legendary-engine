@@ -1,31 +1,30 @@
+// Événement DOMContentLoaded pour exécuter le code lorsque le contenu est chargé
+document.addEventListener('DOMContentLoaded', () => {
+  // Vérifier si le token est présent dans le stockage de session
+  if (sessionStorage.getItem("token") && sessionStorage.getItem("token") !== "undefined") {
+      console.log("Token:", sessionStorage.getItem("token"));
+    // Masquer l'élément login lorsque l'utilisateur est connecté
+    const loginElement = document.querySelector('.login');
+    loginElement.style.display = 'none';
 
-  // Événement DOMContentLoaded pour exécuter le code lorsque le contenu est chargé
-  document.addEventListener('DOMContentLoaded', () => {
-    // Vérifier si le token est présent dans le stockage de session
-    if (sessionStorage.getItem("token") && sessionStorage.getItem("token") !== "undefined") {
-      console.log("successfully");
-      // Masquer l'élément login lorsque l'utilisateur est connecté
-      const loginElement = document.querySelector('.login');
-      loginElement.style.display = 'none';
-  
-      // Afficher les éléments liés à la connexion réussie
-      const isLoggedInList = document.querySelectorAll('.modeEdition');
-      isLoggedInList.forEach(inList => {
-        inList.style.display = 'block';
-      });
-  
-      // Cacher la galerie lorsque l'utilisateur est connecté
-      const galleryElement = document.querySelector('.categories');
-      galleryElement.style.display = 'none';
-      
-    } else {
-      // Cacher éléments de logout 
-      const isLoggedOutList = document.querySelectorAll('.logout');
-      isLoggedOutList.forEach(outList => {
-        outList.style.display = 'none';
-      });
-    }
-  });
+    // Afficher les éléments liés à la connexion réussie
+    const isLoggedInList = document.querySelectorAll('.modeEdition');
+    isLoggedInList.forEach(inList => {
+      inList.style.display = 'block';
+    });
+
+    // Cacher la galerie lorsque l'utilisateur est connecté
+    const galleryElement = document.querySelector('.categories');
+    galleryElement.style.display = 'none';
+
+  } else {
+    // Cacher éléments de logout 
+    const isLoggedOutList = document.querySelectorAll('.logout');
+    isLoggedOutList.forEach(outList => {
+      outList.style.display = 'none';
+    });
+  }
+});
 
 // Récupérer les projets
 function getProjectModal() {
@@ -113,6 +112,7 @@ function modifierProjetsModal(project) {
     })
       .then(function (response) {
         if (response.ok) {
+
           figure.remove(); // Supprime l'élément de la galerie visuellement
         } else {
           console.error('Erreur lors de la suppression');
@@ -127,45 +127,43 @@ function modifierProjetsModal(project) {
   modalGalerie.append(figure);
 }
 
+
 // Ajoute un projet 
-  function addProjectToModal() {
-    // Récupération des saisies pour la création du nouvel élément
-    const imgUploaded = document.getElementById("ajoutPhotoBtn").files[0];
-    const inputTitle = document.getElementById("titrePhoto").value;
-    const selectCategorie = document.getElementById("categoriePhoto");
-    const categoriePhotoId = selectCategorie.value;
+function addProjectToModal() {
   
-    // ajout pour envoyer les données
-    const formData = new FormData();
-    formData.append("image", imgUploaded);
-    formData.append("title", inputTitle);
-    formData.append("categoryId", categoriePhotoId);
-  
-  // Ajout du projet via la méthode POST
-  const url = "http://localhost:5678/api-docs/#/default/post_works";
+  const image = document.getElementById("ajoutPhotoBtn").files[0];
+  const title = document.getElementById("titrePhoto").value;
+  const selectCategorie = document.getElementById("categoriePhoto");
+  const category = selectCategorie.value;
+
+  const formData = new formData();
+  formData.append("image", image);
+  formData.append("title", title);
+  formData.append("category", category);
+
   const token = sessionStorage.getItem("token");
-  
-  fetch(url, {
+
+  fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
-      'Accept': 'application/json',
-      'Authorization' : `Bearer ${token}`,
-    },
-    body: formData,
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+      },
+      body: formData,
   })
-    .then(function(response) {
+    .then(function (response) {
       if (response.ok) {
-        alert('L\'ajout de l\'image a été réalisé avec succès');
-        document.querySelector(".bouton-tous").click();
-        clearForm();
-        getProjectModal();
-        } else {
-        console.error("Erreur lors de l'ajout du projet");
+        return response.json();
+      } else {
+        console.log("Erreur lors de l'ajout du projet");
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Erreur lors de l'ajout du projet", error);
     });
+
+  figure.append(img, figcaption, categoryId, formData);
+  modalGalerie.append(figure);
 }
 
 
@@ -173,7 +171,7 @@ function modifierProjetsModal(project) {
 function closeModal() {
   const modal1 = document.getElementById('modal1');
   const modal3 = document.getElementById('modal3');
-  
+
   modal1.style.display = 'none';
   modal3.style.display = 'none';
 }
@@ -198,5 +196,6 @@ addPhotoButton.addEventListener('click', openAddModal);
 
 // Événement pour enregistrer l'ajout de la photo au clic sur le bouton "Valider"
 const saveButton = document.getElementById('saveButton');
-saveButton.addEventListener('click', savePhoto);
-
+saveButton.addEventListener('click', function () {
+  addProjectToModal(); // Appel de la fonction ici après l'ouverture de la fenêtre modale
+});

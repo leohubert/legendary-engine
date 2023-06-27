@@ -123,11 +123,16 @@
 				<label for="titrePhoto">Titre</label>
 				<span id="titleErrorMessage" class="error"></span>
 				<input id="titrePhoto" type="text" name="titrePhoto" placeholder="">
-				<label for="categoriePhoto">Catégorie</label>
-				<select name="categoriePhoto" id="categoriePhoto">
-				  </select>
+				<span for="categoriePhoto">Catégorie</span>
+				<form>
+					<select name="categoryId" id="categoryId">
+					  <option value="1">1 Objet</option>
+					  <option value="2">2 Appartement</option>
+					  <option value="3">3 Hôtels & restaurants</option>
+					</select>
+					<button class="saveButton">Valider</button>
+				  </form>
 				 <hr>
-				<button id="saveButton">Valider</button>
 			  </div>
 			</div>
 		  </div>

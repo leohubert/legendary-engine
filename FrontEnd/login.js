@@ -47,3 +47,16 @@ loginOk.addEventListener('click', async (event) => {
 });
 }
 });
+
+// Fonction de déconnexion
+function logout() {
+  // Supprimer le token du stockage de session
+  sessionStorage.removeItem('token');
+  // Redirection vers la page de connexion
+  window.location.href = 'index.html';
+}
+
+// Gestionnaire d'événement pour le bouton de déconnexion
+const logoutButton = document.getElementById('logout');
+logoutButton.addEventListener('click', logout);
+
