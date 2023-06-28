@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
       inList.style.display = 'block';
     });
 
-    // Cacher la galerie lorsque l'utilisateur est connecté
-    const galleryElement = document.querySelector('.categories');
-    galleryElement.style.display = 'none';
-
   } else {
     // Cacher éléments de logout 
     const isLoggedOutList = document.querySelectorAll('.logout');
@@ -180,9 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Erreur lors de l'ajout du projet", error);
       });
   }
-
-  // Appel de la fonction addProjectToModal ici
-  addProjectToModal();
 });
 
 
@@ -214,7 +207,7 @@ const addPhotoButton = document.getElementById('ajoutImage');
 addPhotoButton.addEventListener('click', openAddModal);
 
 // Événement pour sauvegarder l'ajout de la photo au clic sur le bouton "Valider"
-const saveButton = document.getElementById('saveButton');
-saveButton.addEventListener('click', function () {
-  addProjectToModal(); // Appel de la fonction ici après l'ouverture de la fenêtre modale
+const saveButton = document.querySelectorAll('saveButton');
+saveButton.forEach(button => {
+  button.addEventListener('click', addProjectToModal);
 });
