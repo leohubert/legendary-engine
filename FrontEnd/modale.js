@@ -125,11 +125,9 @@ function modifierProjetsModal(project) {
   modalGalerie.append(figure);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  function addProjectToModal() {
+function addProjectToModal() {
     const ajoutPhotoBtn = document.getElementById('ajoutPhotoBtn');
     const selectedImage = document.getElementById('selectedImage');
-    const imageRemplace = document.querySelector('.imageRemplace');
     const title = document.getElementById('titrePhoto').value;
     const selectCategorie = document.getElementById('categoryId');
     const category = selectCategorie.value;
@@ -141,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       reader.onload = function(event) {
         selectedImage.src = event.target.result;
+        console.log("Chemin de l'image sélectionnée :", event.target.result);
       };
 
       if (file) {
@@ -152,8 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
     formData.append('image', ajoutPhotoBtn.files[0]);
     formData.append('title', title);
     formData.append('category', category);
-
-    const token = sessionStorage.getItem('token');
 
     fetch('http://localhost:5678/api/works', {
       method: 'POST',
@@ -169,15 +166,19 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log("Erreur lors de l'ajout du projet");
         }
       })
-      .then(function(data) {
+      .then(function() {
         // Traitez la réponse JSON si nécessaire
       })
       .catch(function(error) {
         console.error("Erreur lors de l'ajout du projet", error);
       });
-  }
+  };
+  
+// Événement pour sauvegarder l'ajout de la photo au clic sur le bouton "Valider"
+const saveButton = document.querySelectorAll('#saveButton');
+saveButton.forEach(button => {
+  button.addEventListener('click', addProjectToModal);
 });
-
 
 // Fonction pour fermer les fenêtres avec le bouton
 function closeModal() {
@@ -205,9 +206,3 @@ modifierProjetsElement.addEventListener('click', openModal);
 // Événement pour ouvrir la fenêtre modale d'ajout de photo au clic sur le bouton "Ajouter une photo"
 const addPhotoButton = document.getElementById('ajoutImage');
 addPhotoButton.addEventListener('click', openAddModal);
-
-// Événement pour sauvegarder l'ajout de la photo au clic sur le bouton "Valider"
-const saveButton = document.querySelectorAll('saveButton');
-saveButton.forEach(button => {
-  button.addEventListener('click', addProjectToModal);
-});
