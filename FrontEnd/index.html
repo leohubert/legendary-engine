@@ -13,37 +13,6 @@
 </head>
 
 <body>
-	
-	<!-- Fenêtre modale 1&2 -->
-	 
-
-    <aside id="modal2" class="modalContent ajout" aria-hidden="true" role="modal" aria-label="titlemodal">
-        <div class="modalAjout">
-            <span id="arrowBack">
-                <i class="fa fa-light fa-arrow-left"></i>
-            </span>
-            <h2>Ajout photo</h2>
-            <form id="ajoutPhoto-form" enctype="multipart/form-data">
-                <div id="imgContainer" class="imgContainer">
-                    <i id="ajoutPhotoIcon" class="fa fa-solid fa-image"></i>
-                    <label for="ajoutPhotoBtn" id="ajoutPhotoLabel" class="photoBouton"> + Ajouter photo</label>
-                    <input type="file" name="ajoutPhotoBouton" id="ajoutPhotoBtn" accept=".png, .jpg, .jpeg">
-                    <p id="pContainer">jpg, png: 4mo max</p>
-                </div>
-                <label for="titrePhoto">Titre</label>
-                <span id="titleErrorMessage" class="error"></span>
-                <input id="titrePhoto" type="text" name="titrePhoto" placeholder="">
-                
-                <label for="categoriePhoto">Catégorie</label>
-                <select name="categoriePhoto" id="categoriePhoto"></select>
-                
-                <hr>
-                <input type="submit" value="valider" id="validerBtn" class="btn btn-default">
-            </form>
-			
-		</div>
-	</aside>
-	
 <header>
 	<!-- Barre d'édition -->
 	<div id="barreEdition" class="modalContent modeEdition loginOk" aria-hidden="true" role="dialog" aria-label="titlemodal">
@@ -109,41 +78,45 @@
 		</div>
 
 			<!-- Fenetre modale Ajouter photo -->
-		<div id="modal3" class="modalContent" aria-hidden="true" role="modal" aria-label="titlemodal">
-			<div class="modalPhoto overlay">
-			  <div class="modal">
-				<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
-				<button id="retour"><i class="fa fa-light fa-arrow-left"></i></button>
-				<h2>Ajout photo</h2>
-				<div id="imgContainer" class="imgContainer">
-				  <i id="ajoutPhotoIcon" class="fa-sharp fa-regular fa-image"></i>
-				  <label for="ajoutPhotoBtn" id="ajoutPhotoLabel" class="photoBouton"> + Ajouter photo</label>
-				  <input type="file" name="ajoutPhotoBouton" id="ajoutPhotoBtn" accept=".png, .jpg, .jpeg" display="none">
-				  <p id="type">jpg, png: 4mo max</p>
+			<div id="modal3" class="modalContent" aria-hidden="true" role="modal" aria-label="titlemodal">
+				<div class="modalPhoto overlay">
+				  <div class="modal modalAjoutPhotos">
+					<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+					<button id="retour"><i class="fa fa-light fa-arrow-left"></i></button>
+					<div class="ajoutPhotosContainer">
+					  <h2>Ajout photo</h2>
+					  <div id="imgContainer" class="imgContainer">
+						<img id="selectedImage" src="" alt="Selected Image">
+						<div class="imageRemplace"
+						<i id="ajoutPhotoIcon" class="fa-sharp fa-regular fa-image"></i>
+						<label for="ajoutPhotoBtn" id="ajoutPhotoLabel" class="photoBouton"> + Ajouter photo</label>
+						<input type="file" name="ajoutPhotoBouton" id="ajoutPhotoBtn" accept=".png, .jpg, .jpeg" style="display:none">
+						<p id="type">jpg, png: 4mo max</p>
+					  </div>
+					  </div>
+					  <div class="titreCategories">
+						<label for="titrePhoto">Titre</label>
+						<span id="titleErrorMessage" class="error"></span>
+						<input id="titrePhoto" type="text" name="titrePhoto" placeholder="">
+						<span for="categoryId">Catégorie</span>
+						<form class="formCategory">
+						  <select name="categoryId" id="categoryId">
+							<option id="categoryId" value="1">Objet</option>
+							<option id="categoryId" value="2">Appartement</option>
+							<option id="categoryId" value="3">Hôtels &amp; restaurants</option>
+						  </select>
+						  <hr>
+						  <input type="submit" value="valider" id="validerBtn" class="saveButton">
+						</form>
+					  </div>
+					</div>
+				  </div>
+				  <hr>
 				</div>
-				<div class="titreCategories"
-				<label for="titrePhoto">Titre
-					
-				</label>
-				<span id="titleErrorMessage" class="error"></span>
-				<input id="titrePhoto" type="text" name="titrePhoto" placeholder="">
-				<span for="categoriePhoto">Catégorie</span>
-				<form class="formCategory">
-					<select name="categoryId" id="categoryId">
-					  <option value="1">1 Objet</option>
-					  <option value="2">2 Appartement</option>
-					  <option value="3">3 Hôtels & restaurants</option>
-					</select>
-				</form>
 			  </div>
-			  <hr>
-				<button class="saveButton">Valider</button>
-
-			  </div>
-			</div>
-		  </div>
-		  
+			  
 		</aside>
+
 		<div class="gallery">
 			<!-- Importer dynamiquement la gallerie 
 			-->

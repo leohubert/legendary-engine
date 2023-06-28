@@ -431,8 +431,11 @@
 
 	.fenetres {
 		position: relative;
+		display: flex;
+		justify-content: center;
 	  }
 	  
+	
 	  #modal1,
 	  #modal3 {
 		justify-content: center;
@@ -443,13 +446,16 @@
 
 	.modal {
 		width: 100%;
-		max-width: 700px;
+		max-width: 600px;
 		min-width: 300px;
-		padding: 70px;
+		padding: 50px;
 		position: absolute;
 		border-radius: 20px;
 	}
 
+	 {
+
+	}
 	button .closeModal {
 		display: flex;
 		justify-content: flex-end;
@@ -473,6 +479,14 @@
 	margin: 5%;
   }
   
+  .galleryPhoto {
+	padding: 1em;
+  }
+
+ .ajoutPhotosContainer {
+    margin: 10%;
+  }
+
   #imgContainer {
 	display: flex;
 	flex-direction: column;
@@ -484,18 +498,17 @@
 
 }
 
-#ajoutPhotoIcon{
+#ajoutPhotoIcon {
 	font-size: 50px;
 	color: 	#B9C5CC;
+	background-color: #E8F1F6;
 }
 
 #type {
 	background-color:#E8F1F6;
+	font-size: 10px;
 }
-#imgPreview {
-	width: 100px;
-	display: block;
-}
+
 
 .titreCategories {
 	display: flex;
@@ -504,44 +517,37 @@
     justify-content: center;
 }
 
+#titrePhoto {
+	width: auto;
+	height: 5%;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border-bottom: none;
+}
+
+#categoryId {
+	width: -webkit-fill-available; 
+}
+
 .imgContainer input { /* cacher le bouton browser par défaut */
 	display: none;
 }
 
 #ajoutPhotoLabel{
 	font-family: 'Syne';
-	font-weight: 700;
+	font-weight: bold;
 	color: #306685;
 	background-color:#CBD6DC;
-	margin : 2em auto ;
-	width: 180px;
-	line-height: 50px;
+	line-height: 55px;
 	text-align: center;
 	border-radius: 60px ;
-	display: flex;
-	justify-content: center;
-}
-
-
-#ajoutPhoto-form input, select {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-#ajoutPhoto-form label {
-	margin: 2em 0 1em 0;
-}
-#ajoutPhoto-form textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 #categoriePhoto{
 	color: black;
 }
 
-.modalPhoto button {
+.closeModal
+#retour {
 	display: flex;
     border: none;
 	font-size: 20px;
@@ -573,16 +579,17 @@
 .modalGalerie {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
 	width: 100%;
 	margin-bottom: 50px;
+	row-gap: 20px;
+	justify-content: start;
+	gap: 10px;
   }
 
+
 .figureModal{
-	width: 20%;
+	width: 18%;
 	display: grid;
-    margin: 5px 0px 5px 0px;  
 	}
 
 .modalBoutton {
@@ -611,7 +618,16 @@
 		font-family: 'Syne';
 		margin: 20px;
 		color: #D65353;
-		font-weight: 200;
+		font-weight: lighter;
 		font-size: 14px;
 	}
+
+.fenetres hr {
+	color: #B3B3B3;
+}
+
+#selectedImage {
+	max-width: 40%;
+	max-height: 40%;
+  }
 

@@ -71,6 +71,7 @@ const openAddModal = function (e) {
   });
 };
 
+
 function modifierProjetsModal(project) {
   const modalGalerie = document.querySelector(".modalGalerie");
 
@@ -128,44 +129,61 @@ function modifierProjetsModal(project) {
   modalGalerie.append(figure);
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  function addProjectToModal() {
+    const ajoutPhotoBtn = document.getElementById('ajoutPhotoBtn');
+    const selectedImage = document.getElementById('selectedImage');
+    const imageRemplace = document.querySelector('.imageRemplace');
+    const title = document.getElementById('titrePhoto').value;
+    const selectCategorie = document.getElementById('categoryId');
+    const category = selectCategorie.value;
 
-// Ajoute un projet 
-function addProjectToModal() {
-  
-  const image = document.getElementById("ajoutPhotoBtn").files[0];
-  const title = document.getElementById("titrePhoto").value;
-  const selectCategorie = document.getElementById("categoriePhoto");
-  const category = selectCategorie.value;
+    // Événement pour mettre à jour l'image sélectionnée lorsqu'un fichier est choisi
+    ajoutPhotoBtn.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
 
-  const formData = new formData();
-  formData.append("image", image);
-  formData.append("title", title);
-  formData.append("category", category);
+      reader.onload = function(event) {
+        selectedImage.src = event.target.result;
+      };
 
-  const token = sessionStorage.getItem("token");
-
-  fetch("http://localhost:5678/api/works", {
-    method: "POST",
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
-  })
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log("Erreur lors de l'ajout du projet");
+      if (file) {
+        reader.readAsDataURL(file);
       }
-    })
-    .catch(function (error) {
-      console.error("Erreur lors de l'ajout du projet", error);
     });
 
-  figure.append(img, figcaption, categoryId, formData);
-  modalGalerie.append(figure);
-}
+    const formData = new FormData();
+    formData.append('image', ajoutPhotoBtn.files[0]);
+    formData.append('title', title);
+    formData.append('category', category);
+
+    const token = sessionStorage.getItem('token');
+
+    fetch('http://localhost:5678/api/works', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: formData
+    })
+      .then(function(response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.log("Erreur lors de l'ajout du projet");
+        }
+      })
+      .then(function(data) {
+        // Traitez la réponse JSON si nécessaire
+      })
+      .catch(function(error) {
+        console.error("Erreur lors de l'ajout du projet", error);
+      });
+  }
+
+  // Appel de la fonction addProjectToModal ici
+  addProjectToModal();
+});
 
 
 // Fonction pour fermer les fenêtres avec le bouton
@@ -195,7 +213,7 @@ modifierProjetsElement.addEventListener('click', openModal);
 const addPhotoButton = document.getElementById('ajoutImage');
 addPhotoButton.addEventListener('click', openAddModal);
 
-// Événement pour enregistrer l'ajout de la photo au clic sur le bouton "Valider"
+// Événement pour sauvegarder l'ajout de la photo au clic sur le bouton "Valider"
 const saveButton = document.getElementById('saveButton');
 saveButton.addEventListener('click', function () {
   addProjectToModal(); // Appel de la fonction ici après l'ouverture de la fenêtre modale
