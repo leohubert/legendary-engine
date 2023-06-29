@@ -342,7 +342,7 @@
 		background-color: white;
 		color: black;
 		border-radius: 60px;
-		font-family: Work Sans;
+		font-family: 'Work Sans';
 		font-size: 14px;
 		font-weight: 500;
 	}
@@ -453,10 +453,7 @@
 		border-radius: 20px;
 	}
 
-	 {
-
-	}
-	button .closeModal {
+button .closeModal {
 		display: flex;
 		justify-content: flex-end;
 		border: none;
@@ -525,7 +522,7 @@
 }
 
 #categoryId {
-	width: -webkit-fill-available; 
+	width: auto; 
 }
 
 .imgContainer input { /* cacher le bouton browser par défaut */
