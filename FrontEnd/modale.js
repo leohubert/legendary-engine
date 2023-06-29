@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   } else {
-    // Cacher éléments de logout 
+    // Cacher éléments de logout
     const isLoggedOutList = document.querySelectorAll('.logout');
     isLoggedOutList.forEach(outList => {
       outList.style.display = 'none';
@@ -51,7 +51,7 @@ const openModal = function (e) {
 const openAddModal = function (e) {
   e.preventDefault();
   const addModal = document.getElementById('modal3');
-  modal1.style.display = 'none';  // pour cacher modal1 
+  modal1.style.display = 'none';  // pour cacher modal1
   addModal.style.display = 'flex';
   addModal.setAttribute('aria-hidden', 'false');
 
@@ -64,8 +64,6 @@ const openAddModal = function (e) {
     modal1.style.display = 'flex';
     modal3.style.display = 'none';
   });
-
-  addProjectToModal();
 };
 
 
@@ -126,7 +124,8 @@ function modifierProjetsModal(project) {
   modalGalerie.append(figure);
 }
 
-function addProjectToModal() {
+function addProjectToModal(e) {
+  e.preventDefault();
   const ajoutPhotoBtn = document.getElementById('ajoutPhotoBtn');
   const selectedImage = document.getElementById('selectedImage');
   const imageRemplace = document.querySelector('.imageRemplace');
@@ -143,13 +142,13 @@ function addProjectToModal() {
     reader.onload = function(event) {
       selectedImage.src = event.target.result;
     };
-    
+
 
     if (file) {
       reader.readAsDataURL(file);
     }
   });
-  
+
     const formData = new FormData;
     formData.append('image', ajoutPhotoBtn.files[0]);
     formData.append('title', title);
@@ -172,13 +171,13 @@ function addProjectToModal() {
     })
       .then(function(data) {
           // Utilise les données renvoyées dans la réponse JSON
-          console.log("Données du projet ajouté :", data);      
+          console.log("Données du projet ajouté :", data);
          })
       .catch(function(error) {
         console.error("Erreur lors de l'ajout du projet", error);
       });
   };
-  
+
 // Événement pour sauvegarder l'ajout de la photo au clic sur le bouton "Valider"
 const saveButton = document.querySelector('#saveButton');
 saveButton.addEventListener('click', addProjectToModal);
