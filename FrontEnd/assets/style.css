@@ -553,7 +553,7 @@ button .closeModal {
 	background-color: #A7A7A7;
 }
 
-.saveButton {
+#saveButton {
 	border: 1px;
 	border-radius: 40px;
 	padding: 10px 30px;
@@ -626,5 +626,6 @@ button .closeModal {
 #selectedImage {
 	max-width: 40%;
 	max-height: 40%;
+	display: none;
   }
 

@@ -44,7 +44,6 @@ const openModal = function (e) {
   target.setAttribute('aria-hidden', 'false');
 
   // Appel de la fonction pour ajouter les éléments à la fenêtre modale
-  ajouterGalerie();
   getProjectModal();
 };
 
@@ -65,6 +64,8 @@ const openAddModal = function (e) {
     modal1.style.display = 'flex';
     modal3.style.display = 'none';
   });
+
+  addProjectToModal();
 };
 
 
@@ -139,14 +140,14 @@ function addProjectToModal() {
     const file = e.target.files[0];
     const reader = new FileReader();
 
-      reader.onload = function(event) {
-        selectedImage.src = event.target.result;
-        console.log("Chemin de l'image sélectionnée :", event.target.result);
-      };
-      if (file) {
-        reader.readAsDataURL(file);
-      }
+    reader.onload = function(event) {
+      selectedImage.src = event.target.result;
+    };
+    
 
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   });
   
     const formData = new FormData;
@@ -162,14 +163,16 @@ function addProjectToModal() {
       },
       body: formData,
     })
-      .then(response => {
-        if (!response.ok) {
-            throw new Error("erreur envoi")    
-            } 
-      })
+    .then(function(response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log("Erreur lors de l'ajout du projet");
+      }
+    })
       .then(function(data) {
           // Utilise les données renvoyées dans la réponse JSON
-          console.log("Données du projet ajouté :", data);    
+          console.log("Données du projet ajouté :", data);      
          })
       .catch(function(error) {
         console.error("Erreur lors de l'ajout du projet", error);
