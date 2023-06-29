@@ -128,23 +128,25 @@ function modifierProjetsModal(project) {
 function addProjectToModal() {
   const ajoutPhotoBtn = document.getElementById('ajoutPhotoBtn');
   const selectedImage = document.getElementById('selectedImage');
-  const imageRemplace = document.querySelector('imageRemplace');
+  const imageRemplace = document.querySelector('.imageRemplace');
   const title = document.getElementById('titrePhoto').value;
   const selectCategorie = document.getElementById('categoryId');
   const category = selectCategorie.value;
+  const imageUrl = selectedImage.src; // Récupère le chemin de l'image existante
 
   // Événement pour mettre à jour l'image sélectionnée lorsqu'un fichier est choisi
   ajoutPhotoBtn.addEventListener('change', function(e) {
     const file = e.target.files[0];
     const reader = new FileReader();
 
-    reader.onload = function(event) {
-      selectedImage.src = event.target.result;
-      console.log("Chemin de l'image sélectionnée :", event.target.result);
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
+      reader.onload = function(event) {
+        selectedImage.src = event.target.result;
+        console.log("Chemin de l'image sélectionnée :", event.target.result);
+      };
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+
   });
   
     const formData = new FormData;
